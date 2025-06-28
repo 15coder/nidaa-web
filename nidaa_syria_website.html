@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نداء-سوريا - بيع الهواتف واللابتوبات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .provinces-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .province-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .province-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .province-card i {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .province-card h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .products-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 0.5rem 0;
+        }
+
+        .product-location {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .user-profile {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .messages-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .message {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #667eea;
+        }
+
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .provinces-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <i class="fas fa-mobile-alt"></i>
+                نداء-سوريا
+            </div>
+            <div class="nav-links">
+                <a href="#" onclick="showHome()">الرئيسية</a>
+                <a href="#" onclick="showProfile()">الملف الشخصي</a>
+                <a href="#" onclick="showMessages()">الرسائل</a>
+                <button class="btn" onclick="showLoginModal()" id="loginBtn">تسجيل الدخول</button>
+                <button class="btn hidden" onclick="logout()" id="logoutBtn">تسجيل الخروج</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- الصفحة الرئيسية -->
+        <div id="homePage">
+            <section class="hero">
+                <div class="container">
+                    <h1>مرحباً بكم في نداء-سوريا</h1>
+                    <p>منصتكم الموثوقة لبيع وشراء الهواتف المحمولة واللابتوبات في جميع المحافظات السورية</p>
+                    <button class="btn" onclick="showAddProductModal()">أضف منتجك الآن</button>
+                </div>
+            </section>
+
+            <section class="container">
+                <h2 class="section-title">اختر محافظتك</h2>
+                <div class="provinces-grid" id="provincesGrid">
+                    <!-- سيتم ملء المحافظات هنا بواسطة JavaScript -->
+                </div>
+            </section>
+
+            <section class="products-section">
+                <h2 class="section-title">أحدث المنتجات</h2>
+                <div class="products-grid" id="productsGrid">
+                    <!-- سيتم ملء المنتجات هنا بواسطة JavaScript -->
+                </div>
+            </section>
+        </div>
+
+        <!-- صفحة الملف الشخصي -->
+        <div id="profilePage" class="hidden">
+            <div class="container">
+                <div class="user-profile">
+                    <div class="profile-header">
+                        <div class="profile-avatar" id="profileAvatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h2 id="profileName">المستخدم</h2>
+                            <p id="profileLocation">المحافظة</p>
+                        </div>
+                    </div>
+                    <button class="btn" onclick="showEditProfileModal()">تعديل الملف الشخصي</button>
+                </div>
+
+                <div class="products-section">
+                    <h3 class="section-title">منتجاتي</h3>
+                    <div class="products-grid" id="userProductsGrid">
+                        <!-- منتجات المستخدم -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- صفحة الرسائل -->
+        <div id="messagesPage" class="hidden">
+            <div class="container">
+                <div class="messages-section">
+                    <h2 class="section-title">رسائلي</h2>
+                    <div id="messagesList">
+                        <!-- الرسائل -->
+                    </div>
+                    <button class="btn" onclick="showNewMessageModal()">رسالة جديدة</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- نافذة تسجيل الدخول/التسجيل -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>تسجيل الدخول</h3>
+                <button class="close-btn" onclick="closeModal('loginModal')">&times;</button>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>كلمة المرور</label>
+                    <input type="password" required>
+                </div>
+                <button type="submit" class="btn">تسجيل الدخول</button>
+                <p style="text-align: center; margin-top: 1rem;">
+                    ليس لديك حساب؟ <a href="#" onclick="showRegisterModal()">سجل الآن</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- نافذة التسجيل -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>إنشاء حساب جديد</h3>
+                <button class="close-btn" onclick="closeModal('registerModal')">&times;</button>
+            </div>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label>الاسم الكامل</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>رقم الهاتف</label>
+                    <input type="tel" required>
+                </div>
+                <div class="form-group">
+                    <label>المحافظة</label>
+                    <select required id="registerProvince">
+                        <option value="">اختر المحافظة</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>كلمة المرور</label>
+                    <input type="password" required>
+                </div>
+                <button type="submit" class="btn">إنشاء الحساب</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- نافذة إضافة منتج -->
+    <div id="addProductModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>إضافة منتج جديد</h3>
+                <button class="close-btn" onclick="closeModal('addProductModal')">&times;</button>
+            </div>
+            <form id="addProductForm">
+                <div class="form-group">
+                    <label>نوع المنتج</label>
+                    <select required>
+                        <option value="">اختر النوع</option>
+                        <option value="phone">هاتف محمول</option>
+                        <option value="laptop">لابتوب</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>اسم المنتج</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>السعر (ليرة سورية)</label>
+                    <input type="number" required>
+                </div>
+                <div class="form-group">
+                    <label>المحافظة</label>
+                    <select required id="productProvince">
+                        <option value="">اختر المحافظة</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>الوصف</label>
+                    <textarea rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>الحالة</label>
+                    <select required>
+                        <option value="">اختر الحالة</option>
+                        <option value="new">جديد</option>
+                        <option value="used">مستعمل</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">إضافة المنتج</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- نافذة تعديل الملف الشخصي -->
+    <div id="editProfileModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>تعديل الملف الشخصي</h3>
+                <button class="close-btn" onclick="closeModal('editProfileModal')">&times;</button>
+            </div>
+            <form id="editProfileForm">
+                <div class="form-group">
+                    <label>الاسم الكامل</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>رقم الهاتف</label>
+                    <input type="tel" required>
+                </div>
+                <div class="form-group">
+                    <label>المحافظة</label>
+                    <select required>
+                        <option value="">اختر المحافظة</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">حفظ التغييرات</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- نافذة رسالة جديدة -->
+    <div id="newMessageModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>رسالة جديدة</h3>
+                <button class="close-btn" onclick="closeModal('newMessageModal')">&times;</button>
+            </div>
+            <form id="newMessageForm">
+                <div class="form-group">
+                    <label>إلى (اسم المستخدم)</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>الموضوع</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>الرسالة</label>
+                    <textarea rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn">إرسال الرسالة</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // بيانات المحافظات السورية
+        const syrianProvinces = [
+            { name: 'دمشق', icon: 'fas fa-city' },
+            { name: 'ريف دمشق', icon: 'fas fa-mountain' },
+            { name: 'حلب', icon: 'fas fa-mosque' },
+            { name: 'حمص', icon: 'fas fa-industry' },
+            { name: 'حماة', icon: 'fas fa-water' },
+            { name: 'اللاذقية', icon: 'fas fa-ship' },
+            { name: 'طرطوس', icon: 'fas fa-anchor' },
+            { name: 'إدلب', icon: 'fas fa-tree' },
+            { name: 'درعا', icon: 'fas fa-wheat-awn' },
+            { name: 'السويداء', icon: 'fas fa-mountain' },
+            { name: 'القنيطرة', icon: 'fas fa-mountain' },
+            { name: 'دير الزور', icon: 'fas fa-oil-well' },
+            { name: 'الرقة', icon: 'fas fa-river' },
+            { name: 'الحسكة', icon: 'fas fa-tractor' }
+        ];
+
+        // بيانات وهمية للمنتجات
+        let products = [
+            {
+                id: 1,
+                name: 'iPhone 14 Pro',
+                price: 8500000,
+                province: 'دمشق',
+                type: 'phone',
+                condition: 'new',
+                description: 'هاتف آيفون 14 برو جديد بالكرتونة',
+                seller: 'أحمد محمد'
+            },
+            {
+                id: 2,
+                name: 'MacBook Air M2',
+                price: 12000000,
+                province: 'حلب',
+                type: 'laptop',
+                condition: 'new',
+                description: 'لابتوب ماك بوك اير ام 2 جديد',
+                seller: 'فاطمة أحمد'
+            },
+            {
+                id: 3,
+                name: 'Samsung Galaxy S23',
+                price: 6500000,
+                province: 'حمص',
+                type: 'phone',
+                condition: 'used',
+                description: 'سامسونغ غالاكسي اس 23 مستعمل نظيف',
+                seller: 'محمد علي'
+            }
+        ];
+
+        // بيانات المستخدم الحالي
+        let currentUser = null;
+        let isLoggedIn = false;
+
+        // الرسائل
+        let messages = [];
+
+        // عرض المحافظات
+        function displayProvinces() {
+            const grid = document.getElementById('provincesGrid');
+            grid.innerHTML = '';
+            
+            syrianProvinces.forEach(province => {
+                const provinceCard = document.createElement('div');
+                provinceCard.className = 'province-card';
+                provinceCard.onclick = () => filterByProvince(province.name);
+                
+                provinceCard.innerHTML = `
+                    <i class="${province.icon}"></i>
+                    <h3>${province.name}</h3>
+                    <p>عدد المنتجات: ${products.filter(p => p.province === province.name).length}</p>
+                `;
+                
+                grid.appendChild(provinceCard);
+            });
+        }
+
+        // عرض المنتجات
+        function displayProducts(productsToShow = products) {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+            
+            productsToShow.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                
+                const icon = product.type === 'phone' ? 'fas fa-mobile-alt' : 'fas fa-laptop';
+                
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        <i class="${icon}"></i>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">${product.name}</h4>
+                        <div class="product-price">${product.price.toLocaleString()} ل.س</div>
+                        <div class="product-location">
+                            <i class="fas fa-map-marker-alt"></i> ${product.province}
+                        </div>
+                        <p style="color: #666; margin-bottom: 1rem;">${product.description}</p>
+                        <button class="btn" onclick="contactSeller('${product.seller}', '${product.name}')">
+                            تواصل مع البائع
+                        </button>
+                    </div>
+                `;
+                
+                grid.appendChild(productCard);
+            });
+        }
+
+        // تعبئة قوائم المحافظات في النماذج
+        function populateProvinceSelects() {
+            const selects = ['registerProvince', 'productProvince'];
+            
+            selects.forEach(selectId => {
+                const select = document.getElementById(selectId);
+                if (select) {
+                    syrianProvinces.forEach(province => {
+                        const option = document.createElement('option');
+                        option.value = province.name;
+                        option.textContent = province.name;
+                        select.appendChild(option);
+                    });
+                }
+            });
+        }
+
+        // تصفية المنتجات حسب المحافظة
+        function filterByProvince(provinceName) {
+            const filteredProducts = products.filter(product => product.province === provinceName);
+            displayProducts(filteredProducts);
+            
+            // تحديث عنوان القسم
+            const sectionTitle = document.querySelector('.products-section .section-title');
+            sectionTitle.textContent = `منتجات ${provinceName}`;
+        }
+
+        // عرض نوافذ المودال
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function showLoginModal() {
+            showModal('loginModal');
+        }
+
+        function showRegisterModal() {
+            closeModal('loginModal');
+            showModal('registerModal');
+        }
+
+        function showAddProductModal() {
+            if (!isLoggedIn) {
+                alert('يجب تسجيل الدخول أولاً');
+                showLoginModal();
+                return;
+            }
+            showModal('addProductModal');
+        }
+
+        function showEditProfileModal() {
+            showModal('editProfileModal');
+        }
+
+        function showNewMessageModal() {
+            if (!isLoggedIn) {
+                alert('يجب تسجيل الدخول أولاً');
+                showLoginModal();
+                return;
+            }
+            showModal('newMessageModal');
+        }
+
+        // التنقل بين الصفحات
+        function showHome() {
+            document.getElementById('homePage').classList.remove('hidden');
+            document.getElementById('profilePage').classList.add('hidden');
+            document.getElementById('messagesPage').classList.add('hidden');
+        }
+
+        function showProfile() {
+            if (!isLoggedIn) {
+                alert('يجب تسجيل الدخول أولاً');
+                showLoginModal();
+                return;
+            }
+            document.getElementById('homePage').classList.add('hidden');
+            document.getElementById('profilePage').classList.remove('hidden');
+            document.getElementById('messagesPage').classList.add('hidden');
+            displayUserProducts();
+        }
+
+        function showMessages() {
+            if (!isLoggedIn) {
+                alert('يجب تسجيل الدخول أولاً');
+                showLoginModal();
+                return;
+            }
+            document.getElementById('homePage').classList.add('hidden');
+            document.getElementById('profilePage').classList.add('hidden');
+            document.getElementById('messagesPage').classList.remove('hidden');
+            displayMessages();
+        }
+
+        // تسجيل الدخول والخروج
+        function login(userData) {
+            currentUser = userData;
+            isLoggedIn = true;
+            
+            document.getElementById('loginBtn').classList.add('hidden');
+            document.getElementById('logoutBtn').classList.remove('hidden');
+            
+            document.getElementById('profileName').textContent = userData.name;
+            document.getElementById('profileLocation').textContent = userData.province;
+            document.getElementById('profileAvatar').innerHTML = `<i class="fas fa-user"></i>`;
+            
+            closeModal('loginModal');
+            closeModal('registerModal');
+        }
+
+        function logout() {
+            currentUser = null;
+            isLoggedIn = false;
+            
+            document.getElementById('loginBtn').classList.remove('hidden');
+            document.getElementById('logoutBtn').classList.add('hidden');
+            
+            showHome();
+        }
+
+        // عرض منتجات المستخدم
+        function displayUserProducts() {
+            const grid = document.getElementById('userProductsGrid');
+            const userProducts = products.filter(p => p.seller === currentUser?.name);
+            grid.innerHTML = '';
+            
+            if (userProducts.length === 0) {
+                grid.innerHTML = '<p style="text-align: center; color: #666;">لم تقم بإضافة أي منتجات بعد</p>';
+                return;
+            }
+            
+            userProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                
+                const icon = product.type === 'phone' ? 'fas fa-mobile-alt' : 'fas fa-laptop';
+                
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        <i class="${icon}"></i>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">${product.name}</h4>
+                        <div class="product-price">${product.price.toLocaleString()} ل.س</div>
+                        <div class="product-location">
+                            <i class="fas fa-map-marker-alt"></i> ${product.province}
+                        </div>
+                        <p style="color: #666; margin-bottom: 1rem;">${product.description}</p>
+                        <button class="btn" onclick="deleteProduct(${product.id})" style="background: #dc3545;">
+                            حذف المنتج
+                        </button>
+                    </div>
+                `;
+                
+                grid.appendChild(productCard);
+            });
+        }
+
+        // حذف منتج
+        function deleteProduct(productId) {
+            if (confirm('هل أنت متأكد من حذف هذا المنتج؟')) {
+                products = products.filter(p => p.id !== productId);
+                displayUserProducts();
+                displayProducts();
+                displayProvinces();
+            }
+        }
+
+        // عرض الرسائل
+        function displayMessages() {
+            const messagesList = document.getElementById('messagesList');
+            messagesList.innerHTML = '';
+            
+            const userMessages = messages.filter(m => 
+                m.to === currentUser?.name || m.from === currentUser?.name
+            );
+            
+            if (userMessages.length === 0) {
+                messagesList.innerHTML = '<p style="text-align: center; color: #666;">لا توجد رسائل</p>';
+                return;
+            }
+            
+            userMessages.forEach(message => {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message';
+                
+                messageDiv.innerHTML = `
+                    <div class="message-header">
+                        <span>${message.from === currentUser?.name ? 'إلى: ' + message.to : 'من: ' + message.from}</span>
+                        <span>${message.date}</span>
+                    </div>
+                    <h4>${message.subject}</h4>
+                    <p>${message.content}</p>
+                `;
+                
+                messagesList.appendChild(messageDiv);
+            });
+        }
+
+        // التواصل مع البائع
+        function contactSeller(sellerName, productName) {
+            if (!isLoggedIn) {
+                alert('يجب تسجيل الدخول أولاً للتواصل مع البائع');
+                showLoginModal();
+                return;
+            }
+            
+            if (sellerName === currentUser?.name) {
+                alert('لا يمكنك التواصل مع نفسك');
+                return;
+            }
+            
+            // إضافة رسالة جديدة
+            const message = {
+                id: messages.length + 1,
+                from: currentUser.name,
+                to: sellerName,
+                subject: `استفسار حول ${productName}`,
+                content: `مرحباً، أنا مهتم بالمنتج ${productName}. هل يمكنك تزويدي بمزيد من التفاصيل؟`,
+                date: new Date().toLocaleDateString('ar-EG')
+            };
+            
+            messages.push(message);
+            alert('تم إرسال رسالة للبائع بنجاح');
+        }
+
+        // معالجة النماذج
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // محاكاة تسجيل الدخول
+            const userData = {
+                name: 'أحمد محمد',
+                email: 'ahmed@example.com',
+                phone: '0944123456',
+                province: 'دمشق'
+            };
+            
+            login(userData);
+            alert('تم تسجيل الدخول بنجاح');
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const userData = {
+                name: e.target.querySelector('input[type="text"]').value,
+                email: e.target.querySelector('input[type="email"]').value,
+                phone: e.target.querySelector('input[type="tel"]').value,
+                province: document.getElementById('registerProvince').value
+            };
+            
+            login(userData);
+            alert('تم إنشاء الحساب وتسجيل الدخول بنجاح');
+        });
+
+        document.getElementById('addProductForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formInputs = e.target.querySelectorAll('input, select, textarea');
+            const newProduct = {
+                id: products.length + 1,
+                type: formInputs[0].value,
+                name: formInputs[1].value,
+                price: parseInt(formInputs[2].value),
+                province: formInputs[3].value,
+                description: formInputs[4].value,
+                condition: formInputs[5].value,
+                seller: currentUser.name
+            };
+            
+            products.push(newProduct);
+            displayProducts();
+            displayProvinces();
+            closeModal('addProductModal');
+            e.target.reset();
+            alert('تم إضافة المنتج بنجاح');
+        });
+
+        document.getElementById('editProfileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formInputs = e.target.querySelectorAll('input, select');
+            currentUser.name = formInputs[0].value;
+            currentUser.phone = formInputs[1].value;
+            currentUser.province = formInputs[2].value;
+            
+            document.getElementById('profileName').textContent = currentUser.name;
+            document.getElementById('profileLocation').textContent = currentUser.province;
+            
+            closeModal('editProfileModal');
+            alert('تم تحديث الملف الشخصي بنجاح');
+        });
+
+        document.getElementById('newMessageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formInputs = e.target.querySelectorAll('input, textarea');
+            const message = {
+                id: messages.length + 1,
+                from: currentUser.name,
+                to: formInputs[0].value,
+                subject: formInputs[1].value,
+                content: formInputs[2].value,
+                date: new Date().toLocaleDateString('ar-EG')
+            };
+            
+            messages.push(message);
+            closeModal('newMessageModal');
+            e.target.reset();
+            alert('تم إرسال الرسالة بنجاح');
+        });
+
+        // إغلاق النوافذ عند النقر خارجها
+        window.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal')) {
+                e.target.style.display = 'none';
+            }
+        });
+
+        // تهيئة الموقع
+        document.addEventListener('DOMContentLoaded', function() {
+            displayProvinces();
+            displayProducts();
+            populateProvinceSelects();
+            
+            // إضافة بعض الرسائل التجريبية
+            messages = [
+                {
+                    id: 1,
+                    from: 'فاطمة أحمد',
+                    to: 'أحمد محمد',
+                    subject: 'استفسار حول iPhone 14 Pro',
+                    content: 'مرحباً، هل الهاتف متوفر للبيع؟ وما هي طريقة الدفع؟',
+                    date: new Date().toLocaleDateString('ar-EG')
+                },
+                {
+                    id: 2,
+                    from: 'محمد علي',
+                    to: 'أحمد محمد',
+                    subject: 'عرض تبادل',
+                    content: 'لدي لابتوب Dell وأريد تبديله بهاتف آيفون. هل تقبل التبادل؟',
+                    date: new Date().toLocaleDateString('ar-EG')
+                }
+            ];
+        });
+
+        // إضافة تأثيرات حركية للبطاقات
+        function addAnimations() {
+            const cards = document.querySelectorAll('.province-card, .product-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+        }
+
+        // تشغيل التأثيرات بعد تحميل المحتوى
+        setTimeout(addAnimations, 100);
+    </script>
+</body>
+</html>
